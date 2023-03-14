@@ -8,7 +8,7 @@ modules:
   requires:
   - name: CommunityDMAdmin_html_repo_runtime
   - name: uaa_CommunityDMAdmin
-  - name: sapcommunity_dm
+  - name: sappsbr_dms_integration
     properties:
       destinations: '[{"name": "sdibackend", "url": "https://api-sdm-di.cfapps.sap.hana.ondemand.com",
         "forwardAuthToken": true}]'
@@ -63,11 +63,8 @@ resources:
     service: xsuaa
     service-name: CommunityDMAdmin-xsuaa-service
     service-plan: application
-- name: sapcommunity_dm
-  type: org.cloudfoundry.managed-service
-  parameters:
-    service: sdm
-    service-plan: standard
+- name: sappsbr_dms_integration
+  type: org.cloudfoundry.existing-service
 - name: CommunityDMAdmin-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
